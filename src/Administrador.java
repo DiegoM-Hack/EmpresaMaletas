@@ -1,4 +1,6 @@
-package PACKAGE_NAME;
 
-public class Administrador {
+class Administrador extends Empleado {
+    public Administrador(String nombre, String id) {
+        super(nombre, id, "Administrador");
+    }
 }

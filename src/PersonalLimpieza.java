@@ -1,4 +1,6 @@
-package PACKAGE_NAME;
 
-public class PersonalLimpieza {
+class PersonalLimpieza extends Empleado {
+    public PersonalLimpieza(String nombre, String id) {
+        super(nombre, id, "Limpieza");
+    }
 }

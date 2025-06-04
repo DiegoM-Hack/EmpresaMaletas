@@ -1,0 +1,76 @@
+@startuml
+
+'=======================
+' CLASES DE EMPLEADO
+'=======================
+
+abstract class Empleado {
+    - nombre : String
+    - id : String
+    - rol : String
+    + mostrarInfo() : void
+}
+
+class Cajero {
+    + realizarVenta(p : Producto, cantidad : int) : void
+    + consultarDetalle(p : Producto) : void
+}
+
+class Vendedor {
+    + consultarDetalle(p : Producto) : void
+}
+
+class Administrador
+class Gerente
+class PersonalLimpieza
+
+Empleado <|-- Cajero
+Empleado <|-- Vendedor
+Empleado <|-- Administrador
+Empleado <|-- Gerente
+Empleado <|-- PersonalLimpieza
+
+'=======================
+' CLASES DE PRODUCTO
+'=======================
+
+class Producto {
+    - codigo : String
+    - descripcion : String
+    - ubicacion : String
+    - stock : int
+    - precio : double
+    + getPrecio() : double
+    + getCodigo() : String
+    + mostrarDetalle() : void
+    + mostrarPrecio() : void
+}
+
+class Mochila
+class Bolso
+class MaletaViaje
+class Lonchera
+
+Producto <|-- Mochila
+Producto <|-- Bolso
+Producto <|-- MaletaViaje
+Producto <|-- Lonchera
+
+'=======================
+' CLASE PRINCIPAL
+'=======================
+
+class SistemaMaletas {
+    - productos : ArrayList<Producto>
+    - empleados : ArrayList<Empleado>
+    + main(args : String[]) : void
+    + inicializarDatos() : void
+    + buscarProducto(codigo : String) : Producto
+    + consultarDetalle() : void
+    + clienteConsultar() : void
+    + realizarVenta(c : Cajero) : void
+    + mostrarTodos() : void
+    + mostrarEmpleados() : void
+}
+
+@enduml
